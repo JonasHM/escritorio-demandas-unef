@@ -7,289 +7,281 @@
   <meta name="description" content="Escritório de Ideias da UNEF - Centro Universitário. Cadastre demandas externas para Projetos Integradores Extensionistas (PIE) e participe como mentor." />
   <meta name="theme-color" content="#FF6B05" />
 
-  <!-- Tipografia moderna (opcional). Se preferir 100% sem dependência externa, remova esta linha. -->
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta alinhada ao “laranja UNEF” */
-      --brand: #FF6B05;       /* laranja principal */
-      --brand-dark: #E85A00;  /* hover */
-      --ink: #111827;         /* texto */
-      --muted: #4B5563;       /* texto secundário */
-      --bg: #F6F7FB;          /* fundo */
-      --card: #FFFFFF;        /* cards */
-      --line: rgba(17,24,39,.10);
-      --shadow: 0 18px 40px rgba(17,24,39,.10);
-      --radius: 18px;
-      --max: 1100px;
+      --brand:#FF6B05;
+      --brand-dark:#E85A00;
+      --ink:#111827;
+      --muted:#4B5563;
+      --bg:#F6F7FB;
+      --card:#FFFFFF;
+      --line:rgba(17,24,39,.10);
+      --shadow:0 18px 40px rgba(17,24,39,.10);
+      --radius:18px;
+      --max:1100px;
     }
 
-    * { box-sizing: border-box; }
+    *{box-sizing:border-box}
+
     body{
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: radial-gradient(1100px 450px at 20% -10%, rgba(255,107,5,.18), transparent 55%),
-                  radial-gradient(900px 400px at 90% 0%, rgba(255,107,5,.12), transparent 50%),
-                  var(--bg);
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 450px at 20% -10%, rgba(255,107,5,.18), transparent 55%),
+        radial-gradient(900px 400px at 90% 0%, rgba(255,107,5,.12), transparent 50%),
+        var(--bg);
     }
 
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
+    }
+
+    /* ===== BANNER TOPO ===== */
+    .banner{
+      background:#ffffff;
+      border-bottom:1px solid var(--line);
+    }
+    .banner__inner{
+      padding:14px 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .banner__logo{
+      height:48px;
+      width:auto;
+      max-width:100%;
+      object-fit:contain;
+    }
+    @media (max-width:520px){
+      .banner__logo{height:40px;}
+    }
+
+    /* ===== CONTEÚDO ===== */
     .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 42px 18px 56px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:42px 18px 56px;
     }
 
     header{
-      background: linear-gradient(135deg, rgba(255,107,5,.14), rgba(255,107,5,.06));
-      border: 1px solid rgba(255,107,5,.18);
-      border-radius: 22px;
-      padding: 28px 24px;
-      box-shadow: 0 10px 28px rgba(255,107,5,.10);
+      background:linear-gradient(135deg, rgba(255,107,5,.14), rgba(255,107,5,.06));
+      border:1px solid rgba(255,107,5,.18);
+      border-radius:22px;
+      padding:28px 24px;
+      box-shadow:0 10px 28px rgba(255,107,5,.10);
     }
 
     .kicker{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .02em;
-      color: #7C2D12;
-      background: rgba(255,107,5,.12);
-      border: 1px solid rgba(255,107,5,.22);
-      padding: 8px 12px;
-      border-radius: 999px;
-      margin-bottom: 12px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.02em;
+      color:#7C2D12;
+      background:rgba(255,107,5,.12);
+      border:1px solid rgba(255,107,5,.22);
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:12px;
     }
 
     h1{
-      font-size: clamp(26px, 3.0vw, 40px);
-      line-height: 1.10;
-      margin: 0 0 10px;
-      letter-spacing: -0.02em;
+      font-size:clamp(26px,3vw,40px);
+      line-height:1.1;
+      margin:0 0 10px;
+      letter-spacing:-.02em;
     }
 
     .lead{
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.55;
-      color: var(--muted);
-      max-width: 70ch;
+      margin:0;
+      font-size:16px;
+      line-height:1.55;
+      color:var(--muted);
+      max-width:70ch;
     }
+
+    .note{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,107,5,.08);
+      border:1px solid rgba(255,107,5,.18);
+    }
+    .note strong{color:#7C2D12;}
 
     .grid{
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 18px;
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
-
-    @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr;}
     }
 
     .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      min-height: 320px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      min-height:320px;
     }
 
     .thumb{
-      height: 150px;
+      height:150px;
       background:
         linear-gradient(135deg, rgba(255,107,5,.95), rgba(255,107,5,.55)),
-        radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.25), transparent 55%),
-        radial-gradient(600px 240px at 80% 30%, rgba(255,255,255,.16), transparent 55%);
-      position: relative;
-    }
-
-    .thumb::after{
-      content:"";
-      position:absolute;
-      inset: 0;
-      background: radial-gradient(600px 220px at 20% 20%, rgba(255,255,255,.18), transparent 50%);
-      pointer-events:none;
+        radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.25), transparent 55%);
     }
 
     .body{
-      padding: 18px 18px 16px;
+      padding:18px;
       display:flex;
       flex-direction:column;
-      gap: 10px;
+      gap:10px;
       flex:1;
     }
 
     .title{
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: -0.01em;
+      font-size:18px;
+      font-weight:700;
+      margin:0;
     }
 
     .desc{
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 14px;
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
     }
 
     .actions{
-      padding: 0 18px 18px;
+      padding:0 18px 18px;
       display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
     .btn{
-      appearance: none;
-      border: 0;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13.5px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: transform .10s ease, box-shadow .15s ease, background-color .15s ease, border-color .15s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      white-space: nowrap;
+      text-decoration:none;
+      font-weight:700;
+      font-size:13.5px;
+      padding:10px 14px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:.15s;
+      white-space:nowrap;
     }
-
-    .btn:active{ transform: translateY(1px); }
 
     .btn-primary{
-      background: var(--brand);
-      color: white;
-      box-shadow: 0 10px 20px rgba(255,107,5,.28);
+      background:var(--brand);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(255,107,5,.28);
     }
-    .btn-primary:hover{
-      background: var(--brand-dark);
-      box-shadow: 0 12px 24px rgba(255,107,5,.34);
-    }
+    .btn-primary:hover{background:var(--brand-dark);}
 
     .btn-outline{
-      background: white;
-      color: #7C2D12;
-      border: 1px solid rgba(255,107,5,.45);
+      background:#fff;
+      color:#7C2D12;
+      border:1px solid rgba(255,107,5,.45);
     }
     .btn-outline:hover{
-      border-color: rgba(255,107,5,.75);
-      box-shadow: 0 12px 24px rgba(17,24,39,.10);
-      transform: translateY(-1px);
+      border-color:rgba(255,107,5,.75);
+      transform:translateY(-1px);
     }
 
     footer{
-      margin-top: 18px;
-      color: rgba(75,85,99,.92);
-      font-size: 12.5px;
-      line-height: 1.5;
+      margin-top:18px;
+      color:rgba(75,85,99,.92);
+      font-size:12.5px;
     }
-
-    .note{
-      margin-top: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(255,107,5,.08);
-      border: 1px solid rgba(255,107,5,.18);
-    }
-
-    .note strong{ color: #7C2D12; }
   </style>
 </head>
 
 <body>
+  <!-- BANNER TOPO -->
+  <section class="banner">
+    <div class="container banner__inner">
+      <img
+        class="banner__logo"
+        src="./assets/logo-unef.png"
+        alt="UNEF EAD"
+        loading="eager"
+      />
+    </div>
+  </section>
+
   <main class="wrap">
     <header>
       <div class="kicker">Projetos Integradores Extensionistas (PIE) • Aprendizagem baseada em projetos</div>
       <h1>Escritório de Ideias</h1>
       <p class="lead">
         O Escritório de Ideias da UNEF organiza a captação de demandas externas (escolas, empresas, órgãos públicos e comunidade)
-        para serem atendidas pelos <strong>Projetos Integradores Extensionistas</strong> dos cursos semipresenciais, no modelo de
-        <strong>aprendizado baseado em projetos</strong>. As propostas cadastradas são triadas pela equipe acadêmica e encaminhadas
-        aos coordenadores e docentes para definição dos projetos e contatos com os solicitantes.
+        para serem atendidas pelos <strong>Projetos Integradores Extensionistas</strong> dos cursos semipresenciais.
       </p>
       <div class="note">
-        <strong>Como participar:</strong> escolha seu perfil abaixo e acesse o formulário correspondente. O edital (quando publicado) ficará disponível no botão “Baixar edital”.
+        <strong>Como participar:</strong> escolha seu perfil abaixo e acesse o formulário correspondente.
       </div>
     </header>
 
-    <section class="grid" aria-label="Perfis de participação">
-      <!-- 1) Diretor de escola -->
+    <section class="grid">
+      <!-- Diretor -->
       <article class="card">
-        <div class="thumb" role="img" aria-label="Diretor de escola"></div>
+        <div class="thumb"></div>
         <div class="body">
           <h2 class="title">Sou diretor de escola</h2>
-          <p class="desc">
-            Cadastre demandas educacionais da sua escola para que nossos estudantes proponham soluções e intervenções extensionistas,
-            com acompanhamento docente.
-          </p>
+          <p class="desc">Cadastre demandas educacionais da sua escola para projetos extensionistas orientados.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-escola.pdf" target="_blank" rel="noopener">
-            Baixar edital
-          </a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar-escola" target="_blank" rel="noopener">
-            Acessar formulário
-          </a>
+          <a class="btn btn-outline" href="./edital-escola.pdf" target="_blank">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar-escola" target="_blank">Acessar formulário</a>
         </div>
       </article>
 
-      <!-- 2) Solicitante -->
+      <!-- Solicitante -->
       <article class="card">
-        <div class="thumb" role="img" aria-label="Solicitante"></div>
+        <div class="thumb"></div>
         <div class="body">
           <h2 class="title">Quero ser solicitante</h2>
-          <p class="desc">
-            Você é empresário, gestor público, organização ou pessoa física com uma demanda relacionada às áreas dos nossos cursos?
-            Cadastre aqui.
-          </p>
+          <p class="desc">Empresas, setor público e comunidade podem cadastrar demandas relacionadas às áreas dos cursos.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-solicitante.pdf" target="_blank" rel="noopener">
-            Baixar edital
-          </a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar" target="_blank" rel="noopener">
-            Acessar formulário
-          </a>
+          <a class="btn btn-outline" href="./edital-solicitante.pdf" target="_blank">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar" target="_blank">Acessar formulário</a>
         </div>
       </article>
 
-      <!-- 3) Mentor -->
+      <!-- Mentor -->
       <article class="card">
-        <div class="thumb" role="img" aria-label="Mentor"></div>
+        <div class="thumb"></div>
         <div class="body">
           <h2 class="title">Quero ser mentor</h2>
-          <p class="desc">
-            Profissionais da comunidade podem colaborar com orientações, recomendações técnicas e apoio pontual aos grupos de estudantes
-            durante os projetos.
-          </p>
+          <p class="desc">Profissionais podem contribuir com orientação técnica e acompanhamento dos projetos.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-mentor.pdf" target="_blank" rel="noopener">
-            Baixar edital
-          </a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/mentores/cadastrar" target="_blank" rel="noopener">
-            Acessar formulário
-          </a>
+          <a class="btn btn-outline" href="./edital-mentor.pdf" target="_blank">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/mentores/cadastrar" target="_blank">Acessar formulário</a>
         </div>
       </article>
     </section>
 
     <footer>
-      <div style="margin-top:14px;">
-        UNEF - Centro Universitário • Protótipo de página para validação com a equipe de TI.
-      </div>
+      UNEF - Centro Universitário • Protótipo para validação com a equipe de TI
     </footer>
   </main>
 </body>
