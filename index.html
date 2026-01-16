@@ -15,12 +15,12 @@
   :root{
     --brand:#FF6B05;
     --brand-dark:#E85A00;
-    --ink:#111827;
-    --muted:#4B5563;
-    --bg:#F6F7FB;
+    --ink:#0F172A;
+    --muted:#334155;
+    --bg:#FFFFFF;
     --card:#FFFFFF;
-    --line:rgba(17,24,39,.10);
-    --shadow:0 18px 40px rgba(17,24,39,.10);
+    --line:rgba(15,23,42,.10);
+    --shadow:0 18px 40px rgba(15,23,42,.08);
     --radius:18px;
     --max:1100px;
   }
@@ -31,22 +31,20 @@
     margin:0;
     font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     color:var(--ink);
-    background:
-      radial-gradient(1100px 450px at 20% -10%, rgba(255,107,5,.18), transparent 55%),
-      radial-gradient(900px 400px at 90% 0%, rgba(255,107,5,.12), transparent 50%),
-      var(--bg);
+    background:var(--bg);
   }
 
+  /* Página branca, sem caixas/bordas */
   .wrap{
     max-width:var(--max);
     margin:0 auto;
-    padding:42px 18px 56px;
+    padding:28px 18px 56px;
   }
 
-  /* ===== LOGO NO MESMO CONTAINER DO TEXTO ===== */
+  /* Logo (opcional, mantém alinhamento ao conteúdo) */
   .logo-container{
     max-width:var(--max);
-    margin:0 auto 18px;
+    margin:0 auto 10px;
     padding:0 18px;
     display:flex;
     justify-content:center;
@@ -54,7 +52,7 @@
 
   .logo-unef{
     width:100%;
-    max-width:520px; /* um pouco maior para dar presença */
+    max-width:560px;
     height:auto;
     object-fit:contain;
     display:block;
@@ -64,86 +62,86 @@
     .logo-unef{ max-width:340px; }
   }
 
-  /* ===== HEADER / BLOCO PRINCIPAL ===== */
+  /* Header agora é “invisível”: sem fundo, sem borda, sem sombra */
   header{
-    background:linear-gradient(135deg, rgba(255,107,5,.14), rgba(255,107,5,.06));
-    border:1px solid rgba(255,107,5,.18);
-    border-radius:22px;
-    padding:30px 28px;
-    box-shadow:0 10px 28px rgba(255,107,5,.10);
+    padding:0;
+    margin:0;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
   }
 
+  /* “kicker” vira uma linha leve, sem cápsula sombreada */
   .kicker{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:.02em;
-    color:#7C2D12;
-    background:rgba(255,107,5,.12);
-    border:1px solid rgba(255,107,5,.22);
-    padding:8px 12px;
-    border-radius:999px;
-    margin-bottom:12px;
+    display:block;
+    margin:0 0 14px;
+    padding:0 0 10px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--muted);
+    border-bottom:1px solid rgba(15,23,42,.12);
   }
 
   h1{
-    font-size:clamp(26px, 3vw, 40px);
-    line-height:1.1;
-    margin:0 0 12px;
+    margin:0 0 16px;
+    font-size:clamp(30px, 3.2vw, 44px);
+    line-height:1.12;
     letter-spacing:-.02em;
   }
 
-  /* ===== TEXTO INSTITUCIONAL (UMA COLUNA, USABILIDADE) ===== */
+  /* Texto: uma coluna, ocupando toda a área do conteúdo (sem “limitar demais”) */
   .textblock{
-    margin-top:8px;
-    max-width:78ch;        /* largura ideal para leitura */
+    max-width: 100%;
+    margin: 0;
   }
 
   .textblock p{
-    margin:0 0 12px;
-    font-size:15.5px;
-    line-height:1.7;
+    margin:0 0 14px;
+    font-size:16px;
+    line-height:1.8;
     color:var(--muted);
-    text-align:justify;
-    text-justify:inter-word;
-    hyphens:auto;
-    overflow-wrap:anywhere; /* evita estourar com palavras longas/URLs */
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    overflow-wrap: anywhere;
   }
 
   .textblock h3{
-    margin:16px 0 8px;
-    font-size:15px;
+    margin:22px 0 10px;
+    font-size:18px;
     font-weight:800;
     color:var(--ink);
     letter-spacing:-.01em;
   }
 
-  /* Mobile: justificado pode criar "buracos"; melhora legibilidade */
+  /* Mobile: melhor leitura sem justificar */
   @media (max-width:560px){
-    .textblock{
-      max-width:100%;
-    }
     .textblock p{
       text-align:left;
+      hyphens: manual;
     }
   }
 
+  /* Nota: agora é apenas um parágrafo discreto, sem borda e sem fundo */
   .note{
-    margin-top:12px;
-    padding:12px 14px;
-    border-radius:14px;
-    background:rgba(255,107,5,.08);
-    border:1px solid rgba(255,107,5,.18);
+    margin-top:16px;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  .note strong{
     color:var(--ink);
   }
 
-  .note strong{ color:#7C2D12; }
-
-  /* ===== CARDS ===== */
+  /* Cards: mantêm estética limpa, sem “caixa pesada” */
   .grid{
-    margin-top:22px;
+    margin-top:26px;
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:18px;
@@ -155,20 +153,20 @@
 
   .card{
     background:var(--card);
-    border:1px solid var(--line);
+    border:1px solid rgba(15,23,42,.10);
     border-radius:var(--radius);
     overflow:hidden;
-    box-shadow:var(--shadow);
+    box-shadow:0 10px 26px rgba(15,23,42,.08);
     display:flex;
     flex-direction:column;
     min-height:320px;
   }
 
   .thumb{
-    height:150px;
+    height:160px;
     background:
       linear-gradient(135deg, rgba(255,107,5,.95), rgba(255,107,5,.55)),
-      radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.25), transparent 55%);
+      radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.22), transparent 55%);
   }
 
   .body{
@@ -181,15 +179,16 @@
 
   .title{
     font-size:18px;
-    font-weight:700;
+    font-weight:800;
     margin:0;
+    color:var(--ink);
   }
 
   .desc{
     margin:0;
     color:var(--muted);
-    font-size:14px;
-    line-height:1.5;
+    font-size:14.5px;
+    line-height:1.6;
   }
 
   .actions{
@@ -201,7 +200,7 @@
 
   .btn{
     text-decoration:none;
-    font-weight:700;
+    font-weight:800;
     font-size:13.5px;
     padding:10px 14px;
     border-radius:999px;
@@ -217,33 +216,34 @@
   .btn-primary{
     background:var(--brand);
     color:#fff;
-    box-shadow:0 10px 20px rgba(255,107,5,.28);
+    box-shadow:0 10px 18px rgba(255,107,5,.24);
   }
 
   .btn-primary:hover{
     background:var(--brand-dark);
-    box-shadow:0 12px 24px rgba(255,107,5,.34);
+    box-shadow:0 12px 22px rgba(255,107,5,.30);
   }
 
   .btn-outline{
     background:#fff;
-    color:#7C2D12;
-    border:1px solid rgba(255,107,5,.45);
+    color:var(--brand-dark);
+    border:1px solid rgba(255,107,5,.55);
   }
 
   .btn-outline:hover{
-    border-color:rgba(255,107,5,.75);
-    box-shadow:0 12px 24px rgba(17,24,39,.10);
+    border-color:rgba(255,107,5,.85);
+    box-shadow:0 10px 22px rgba(15,23,42,.10);
     transform:translateY(-1px);
   }
 
   footer{
-    margin-top:18px;
-    color:rgba(75,85,99,.92);
+    margin-top:22px;
+    color:rgba(51,65,85,.9);
     font-size:12.5px;
-    line-height:1.5;
+    line-height:1.6;
   }
 </style>
+
 
 </head>
 
