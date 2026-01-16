@@ -94,36 +94,73 @@
       letter-spacing:-.02em;
     }
 
-    /* ===== TEXTO INSTITUCIONAL (JUSTIFICADO) ===== */
+    /* ===== TEXTO INSTITUCIONAL (melhor uso de área) ===== */
     .textblock{
-      max-width: 78ch; /* controla a largura do texto para leitura */
+      margin-top: 8px;
+      max-width: 100%;
     }
-
+    
     .textblock p{
       margin: 0 0 12px;
       font-size: 15.5px;
-      line-height: 1.65;
+      line-height: 1.7;
       color: var(--muted);
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
     }
-
+    
     .textblock h3{
       margin: 14px 0 8px;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--ink);
       letter-spacing: -0.01em;
     }
-
-    /* Em telas muito pequenas, justificado pode “abrir buracos”.
-       Então voltamos para alinhamento à esquerda. */
-    @media (max-width: 560px){
+    
+    /* Desktop: 2 colunas para aproveitar o espaço do header */
+    @media (min-width: 980px){
+      .textblock{
+        column-count: 2;
+        column-gap: 28px;
+        column-rule: 1px solid rgba(17,24,39,.08);
+      }
+    
+      .textblock h3{
+        break-inside: avoid;
+        margin-top: 10px;
+      }
+    
       .textblock p{
-        text-align: left;
+        break-inside: avoid;
       }
     }
+    
+        /* Mobile: evitar “buracos” do justificado */
+        @media (max-width: 560px){
+          .textblock p{
+            text-align: left;
+          }
+        }
+    
+    @media (min-width: 980px){
+      .textblock{
+        max-height: 280px;       /* ajuste fino */
+        overflow: auto;
+        padding-right: 10px;
+      }
+    
+      .textblock::-webkit-scrollbar{ width: 10px; }
+      .textblock::-webkit-scrollbar-thumb{
+        background: rgba(17,24,39,.15);
+        border-radius: 999px;
+      }
+    }
+
+        header{
+      padding: 30px 28px;
+    }
+
 
     .note{
       margin-top:12px;
@@ -243,7 +280,7 @@
     </div>
 
     <header>
-      <div class="kicker">Projetos Integradores Extensionistas (PIE) • Aprendizagem baseada em projetos</div>
+      <div class="kicker">Projetos Integradores Extensionistas (PIE)</div>
       <h1>Escritório de Ideias</h1>
 
       <div class="textblock">
