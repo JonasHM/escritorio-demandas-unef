@@ -44,56 +44,7 @@
       padding:0 18px;
     }
 
-    /* ===== BANNER TOPO ===== */
-    /* ===== BANNER INSTITUCIONAL UNEF EAD ===== */
-    /* ===== BANNER INSTITUCIONAL UNEF EAD ===== */
-    .banner{
-      width: 100%;
-      background: linear-gradient(
-        135deg,
-        rgba(255,107,5,.22),
-        rgba(255,107,5,.08)
-      );
-      border-bottom: 1px solid var(--line);
-    }
     
-    .banner__inner{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 32px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .banner__logo{
-      width: min(520px, 90vw); /* cresce conforme a tela */
-      height: auto;
-      max-height: 140px;       /* limite visual elegante */
-      object-fit: contain;
-      display: block;
-    }
-    
-    /* Tablets */
-    @media (max-width: 900px){
-      .banner__logo{
-        width: min(420px, 90vw);
-        max-height: 120px;
-      }
-    }
-    
-    /* Celulares */
-    @media (max-width: 520px){
-      .banner__inner{
-        padding: 22px 16px;
-      }
-      .banner__logo{
-        width: min(320px, 92vw);
-        max-height: 100px;
-      }
-    }
-
-
 
     /* ===== CONTEÚDO ===== */
     .wrap{
@@ -240,23 +191,43 @@
       color:rgba(75,85,99,.92);
       font-size:12.5px;
     }
+
+    .logo-container{
+      max-width: var(--max);
+      margin: 0 auto 18px;
+      padding: 0 18px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .logo-unef{
+      width: 100%;          /* ocupa a largura do container */
+      max-width: 420px;     /* limite elegante (ajuste se quiser) */
+      height: auto;
+      object-fit: contain;
+    }
+    
+    /* Responsivo */
+    @media (max-width: 520px){
+      .logo-unef{
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- BANNER TOPO -->
-   <section class="banner">
-    <div class="banner__inner">
+ 
+
+  <main class="wrap">
+    <div class="logo-container">
       <img
         src="./assets/logo-unef.png"
         alt="UNEF EAD"
-        class="banner__logo"
+        class="logo-unef"
         loading="eager"
       />
     </div>
-  </section>
-
-  <main class="wrap">
     <header>
       <div class="kicker">Projetos Integradores Extensionistas (PIE) • Aprendizagem baseada em projetos</div>
       <h1>Escritório de Ideias</h1>
