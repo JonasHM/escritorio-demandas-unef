@@ -45,37 +45,54 @@
     }
 
     /* ===== BANNER TOPO ===== */
+    /* ===== BANNER INSTITUCIONAL UNEF EAD ===== */
+    /* ===== BANNER INSTITUCIONAL UNEF EAD ===== */
     .banner{
-      background: linear-gradient(135deg, rgba(255,107,5,.18), rgba(255,107,5,.06));
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255,107,5,.22),
+        rgba(255,107,5,.08)
+      );
       border-bottom: 1px solid var(--line);
     }
     
     .banner__inner{
-      padding: 14px 0;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 18px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     
-    .banner__logoWrap{
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(17,24,39,.10);
-      border-radius: 14px;
-      padding: 10px 14px;
-      box-shadow: 0 10px 24px rgba(17,24,39,.08);
-    }
-    
     .banner__logo{
-      height: 48px;
-      width: auto;
-      max-width: 100%;
+      width: min(520px, 90vw); /* cresce conforme a tela */
+      height: auto;
+      max-height: 140px;       /* limite visual elegante */
       object-fit: contain;
       display: block;
     }
     
-    @media (max-width: 520px){
-      .banner__logo{ height: 40px; }
+    /* Tablets */
+    @media (max-width: 900px){
+      .banner__logo{
+        width: min(420px, 90vw);
+        max-height: 120px;
+      }
     }
+    
+    /* Celulares */
+    @media (max-width: 520px){
+      .banner__inner{
+        padding: 22px 16px;
+      }
+      .banner__logo{
+        width: min(320px, 92vw);
+        max-height: 100px;
+      }
+    }
+
 
 
     /* ===== CONTEÚDO ===== */
@@ -228,16 +245,14 @@
 
 <body>
   <!-- BANNER TOPO -->
-  <section class="banner">
-    <div class="container banner__inner">
-       <div class="banner__logoWrap">
-        <img
-          class="banner__logo"
-          src="./assets/logo-unef.png"
-          alt="UNEF EAD"
-          loading="eager"
-        />
-      </div>
+   <section class="banner">
+    <div class="banner__inner">
+      <img
+        src="./assets/logo-unef.png"
+        alt="UNEF EAD"
+        class="banner__logo"
+        loading="eager"
+      />
     </div>
   </section>
 
