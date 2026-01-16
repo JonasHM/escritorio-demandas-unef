@@ -7,7 +7,6 @@
   <meta name="description" content="Escritório de Ideias da UNEF - Centro Universitário. Cadastre demandas externas para Projetos Integradores Extensionistas (PIE) e participe como mentor." />
   <meta name="theme-color" content="#FF6B05" />
 
-  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,19 +37,31 @@
         var(--bg);
     }
 
-    .container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
-    }
-
-    
-
-    /* ===== CONTEÚDO ===== */
     .wrap{
       max-width:var(--max);
       margin:0 auto;
       padding:42px 18px 56px;
+    }
+
+    /* ===== LOGO NO MESMO CONTAINER DO TEXTO ===== */
+    .logo-container{
+      max-width: var(--max);
+      margin: 0 auto 18px;
+      padding: 0 18px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .logo-unef{
+      width:100%;
+      max-width:420px;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+
+    @media (max-width: 520px){
+      .logo-unef{ max-width: 300px; }
     }
 
     header{
@@ -79,16 +90,39 @@
     h1{
       font-size:clamp(26px,3vw,40px);
       line-height:1.1;
-      margin:0 0 10px;
+      margin:0 0 12px;
       letter-spacing:-.02em;
     }
 
-    .lead{
-      margin:0;
-      font-size:16px;
-      line-height:1.55;
-      color:var(--muted);
-      max-width:70ch;
+    /* ===== TEXTO INSTITUCIONAL (JUSTIFICADO) ===== */
+    .textblock{
+      max-width: 78ch; /* controla a largura do texto para leitura */
+    }
+
+    .textblock p{
+      margin: 0 0 12px;
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--muted);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .textblock h3{
+      margin: 14px 0 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* Em telas muito pequenas, justificado pode “abrir buracos”.
+       Então voltamos para alinhamento à esquerda. */
+    @media (max-width: 560px){
+      .textblock p{
+        text-align: left;
+      }
     }
 
     .note{
@@ -97,6 +131,7 @@
       border-radius:14px;
       background:rgba(255,107,5,.08);
       border:1px solid rgba(255,107,5,.18);
+      color: var(--ink);
     }
     .note strong{color:#7C2D12;}
 
@@ -191,35 +226,13 @@
       color:rgba(75,85,99,.92);
       font-size:12.5px;
     }
-
-    .logo-container{
-      max-width: var(--max);
-      margin: 0 auto 18px;
-      padding: 0 18px;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .logo-unef{
-      width: 100%;          /* ocupa a largura do container */
-      max-width: 420px;     /* limite elegante (ajuste se quiser) */
-      height: auto;
-      object-fit: contain;
-    }
-    
-    /* Responsivo */
-    @media (max-width: 520px){
-      .logo-unef{
-        max-width: 300px;
-      }
-    }
   </style>
 </head>
 
 <body>
- 
-
   <main class="wrap">
+
+    <!-- LOGO (substitua por ./assets/logo-unef.png) -->
     <div class="logo-container">
       <img
         src="./assets/logo-unef.png"
@@ -228,15 +241,38 @@
         loading="eager"
       />
     </div>
+
     <header>
       <div class="kicker">Projetos Integradores Extensionistas (PIE) • Aprendizagem baseada em projetos</div>
       <h1>Escritório de Ideias</h1>
-      <p class="lead">
-        O Escritório de Ideias da UNEF organiza a captação de demandas externas (escolas, empresas, órgãos públicos e comunidade)
-        para serem atendidas pelos <strong>Projetos Integradores Extensionistas</strong> dos cursos semipresenciais.
-      </p>
+
+      <div class="textblock">
+        <p>
+          O <strong>Escritório de Ideias da UNEF – Centro Universitário</strong> é uma iniciativa institucional voltada à articulação entre formação acadêmica e demandas reais da sociedade. Por meio dessa estrutura, estudantes dos cursos de graduação e pós-graduação desenvolvem soluções acadêmicas e profissionais para desafios concretos apresentados por organizações, instituições e pela comunidade em geral, fortalecendo a integração entre teoria e prática.
+        </p>
+        <p>
+          A proposta contribui diretamente para a qualificação da formação dos estudantes, ao proporcionar experiências com aplicação real no contexto profissional, ao mesmo tempo em que promove impactos positivos de natureza social, educacional, organizacional e tecnológica.
+        </p>
+
+        <h3>A quem se destina</h3>
+        <p>
+          O Escritório de Ideias atende instituições públicas e privadas, organizações do terceiro setor e pessoas físicas que possuam demandas alinhadas às áreas de formação dos cursos ofertados pela UNEF – Centro Universitário. As propostas submetidas devem apresentar aderência aos campos de conhecimento e às competências desenvolvidas nos projetos acadêmicos institucionais.
+        </p>
+
+        <h3>Como funciona</h3>
+        <p>
+          As demandas cadastradas passam por análise e triagem da equipe acadêmica da UNEF. Quando selecionadas, são desenvolvidas de forma gratuita por estudantes, no âmbito dos Projetos Integradores Extensionistas, sob a orientação de docentes e, quando aplicável, com o apoio de mentores convidados com experiência profissional na área.
+        </p>
+        <p>
+          Durante o processo, as instituições e os solicitantes podem ser contatados pela equipe responsável para alinhamento e acompanhamento das atividades. Além de gerar soluções relevantes para a comunidade, o Escritório de Ideias amplia as oportunidades de aprendizagem prática dos estudantes, favorecendo a aproximação com o mercado de trabalho e contribuindo para o desenvolvimento de competências profissionais essenciais.
+        </p>
+        <p>
+          Com essa iniciativa, a <strong>UNEF – Centro Universitário</strong> reafirma seu compromisso com a inovação pedagógica, a extensão universitária e a aplicação social do conhecimento, consolidando a formação acadêmica como instrumento de transformação da realidade.
+        </p>
+      </div>
+
       <div class="note">
-        <strong>Como participar:</strong> escolha seu perfil abaixo e acesse o formulário correspondente.
+        <strong>Como participar:</strong> escolha seu perfil abaixo e acesse o formulário correspondente. O edital (quando publicado) ficará disponível no botão “Baixar edital”.
       </div>
     </header>
 
@@ -249,8 +285,8 @@
           <p class="desc">Cadastre demandas educacionais da sua escola para projetos extensionistas orientados.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-escola.pdf" target="_blank">Baixar edital</a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar-escola" target="_blank">Acessar formulário</a>
+          <a class="btn btn-outline" href="./edital-escola.pdf" target="_blank" rel="noopener">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar-escola" target="_blank" rel="noopener">Acessar formulário</a>
         </div>
       </article>
 
@@ -262,8 +298,8 @@
           <p class="desc">Empresas, setor público e comunidade podem cadastrar demandas relacionadas às áreas dos cursos.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-solicitante.pdf" target="_blank">Baixar edital</a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar" target="_blank">Acessar formulário</a>
+          <a class="btn btn-outline" href="./edital-solicitante.pdf" target="_blank" rel="noopener">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/demandas/cadastrar" target="_blank" rel="noopener">Acessar formulário</a>
         </div>
       </article>
 
@@ -275,8 +311,8 @@
           <p class="desc">Profissionais podem contribuir com orientação técnica e acompanhamento dos projetos.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-outline" href="./edital-mentor.pdf" target="_blank">Baixar edital</a>
-          <a class="btn btn-primary" href="https://multiversa.edu.br/mentores/cadastrar" target="_blank">Acessar formulário</a>
+          <a class="btn btn-outline" href="./edital-mentor.pdf" target="_blank" rel="noopener">Baixar edital</a>
+          <a class="btn btn-primary" href="https://multiversa.edu.br/mentores/cadastrar" target="_blank" rel="noopener">Acessar formulário</a>
         </div>
       </article>
     </section>
