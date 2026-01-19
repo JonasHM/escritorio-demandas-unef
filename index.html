@@ -163,11 +163,30 @@
   }
 
   .thumb{
-    height:160px;
-    background:
-      linear-gradient(135deg, rgba(255,107,5,.95), rgba(255,107,5,.55)),
-      radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.22), transparent 55%);
+    position: relative;
+    height: 160px;
+    overflow: hidden;
   }
+  
+  .thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .thumb::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(
+      180deg,
+      rgba(255,107,5,.18),
+      rgba(255,107,5,.35)
+    );
+    pointer-events:none;
+  }
+
 
   .body{
     padding:18px;
@@ -297,7 +316,9 @@
     <section class="grid">
       <!-- Diretor -->
       <article class="card">
-        <div class="thumb"></div>
+        <div class="thumb">
+            <img src="./assets/diretor.jpg" alt="Diretor de escola" />
+        </div>  
         <div class="body">
           <h2 class="title">Sou diretor de escola</h2>
           <p class="desc">Cadastre demandas educacionais da sua escola para projetos extensionistas orientados.</p>
@@ -310,7 +331,9 @@
 
       <!-- Solicitante -->
       <article class="card">
-        <div class="thumb"></div>
+        <div class="thumb">
+          <img src="./assets/solicitante.jpg" alt="Solicitante de demanda" />
+        </div>
         <div class="body">
           <h2 class="title">Quero ser solicitante</h2>
           <p class="desc">Empresas, setor público e comunidade podem cadastrar demandas relacionadas às áreas dos cursos.</p>
@@ -323,7 +346,9 @@
 
       <!-- Mentor -->
       <article class="card">
-        <div class="thumb"></div>
+        <div class="thumb">
+          <img src="./assets/card-mentor.jpg" alt="Mentor de projetos" />
+        </div>
         <div class="body">
           <h2 class="title">Quero ser mentor</h2>
           <p class="desc">Profissionais podem contribuir com orientação técnica e acompanhamento dos projetos.</p>
